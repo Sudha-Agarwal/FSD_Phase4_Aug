@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        
+        function newBackgroundColor(bckclr) {
+            document.bgColor = bckclr;
+            
+        }
+    </script>
+    <style type="text/css">
+        #bckclr
+        {
+            width: 465px;
+        }
+        
+    </style>
+</head>
+<body>
+<form id="form1">
+    <div>   
+        <asp:Label ID="Label1" runat="server" Text="Select Color for change the color"></asp:Label>   
+    </div>
+ <br />
+ <input type="color" name="bckclr" id="bckclr" onchange="newBackgroundColor(bckclr.value);" /><br/>
+<br />Select the Color for Background
+ Selected Color is:
+ <input name="selectedcolor" id="t1" type="text"/>
+ </form>
+</body>
+</html>

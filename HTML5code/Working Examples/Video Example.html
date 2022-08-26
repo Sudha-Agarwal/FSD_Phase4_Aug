@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=620">
+<title>HTML5 Sisoft Demo: Video</title>
+
+<script src="js/h5utils1.js">
+</script>
+
+</head>
+<body>
+<section id="wrapper">
+<div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/14060/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+    <header>
+      <h1>Video</h1>
+    </header>
+
+<article>
+  <video preload="metadata"> 
+    <source src="sample.avi" type="video/avi" />
+  </video>
+
+  <p id="controls">
+    <input type="button" id="play" value="play">
+    	<span id="position">00:00</span> / <span id="duration">loading...</span>
+  </p>
+
+  <p>Video loaded: <span id="using">loading...</span></p>
+  <p>Note that (at time of writing) 
+<a href="http://webkit.org/" title="The WebKit Open Source Project">Webkit nightly</a> supports full screen mode, which will add a button above.</p>
+</article>
+<script>
+
+
+
+var video = document.getElementsByTagName('video')[0],
+    togglePlay = document.getElementById('play'),
+    position = document.getElementById('position'),
+    using = document.getElementById('using'),
+    ready = false,
+    controls = document.getElementById('controls'),
+    fullscreen = null;
+
+addEvent(togglePlay, 'click', function () {
+  if (ready) {
+    // video.playbackRate = 0.5;
+    if (video.paused) {
+      if (video.ended) video.currentTime = 0;
+      video.play();
+      this.value = "pause";
+    } else {
+      video.pause();
+      this.value = "play";
+    }
+  }
+});
+
+addEvent(video, 'timeupdate', function () {
+  position.innerHTML = asTime(this.currentTime);
+});
+
+addEvent(video, 'ended', function () {
+  togglePlay.value = "play";
+});
+
+// this used to be canplay, but really it should have been loadedmetadata - sorry folks
+function loadedmetadata() {
+  video.muted = true;
+  ready = true;
+  document.querySelector('#duration').innerHTML = asTime(this.duration);
+  using.innerHTML = this.currentSrc;
+  // note: .webkitSupportsFullscreen is false while the video is loading, so we bind in to the canplay event
+  if (video.webkitSupportsFullscreen) {
+    fullscreen = document.createElement('input');
+    fullscreen.setAttribute('type', 'button');
+    fullscreen.setAttribute('value', 'fullscreen');
+    controls.insertBefore(fullscreen, controls.firstChild);
+    addEvent(fullscreen, 'click', function () {
+      video.webkitEnterFullScreen();
+    });
+  }
+}
+
+if (video.readyState > 0) { // metadata is loaded already - fire the event handler manually
+  loadedmetadata.call(video);
+} else {
+  addEvent(video, 'loadedmetadata', loadedmetadata);
+}
+
+
+function asTime(t) {
+  t = Math.round(t);
+  var s = t % 60;
+  var m = Math.floor(t / 60);
+  
+  return two(m) + ':' + two(s);
+}
+
+function two(s) {
+  s += "";
+  if (s.length < 2) s = "0" + s;
+  return s;
+}
+</script><a id="html5badge" href="http://www.w3.org/html/logo/">
+<img src="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-device-graphics-multimedia-performance-semantics-storage.png" width="325" height="64" alt="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D & Effects, Multimedia, Performance & Integration, Semantics, and Offline & Storage" title="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D & Effects, Multimedia, Performance & Integration, Semantics, and Offline & Storage">
+</a>
+    <footer><a href="/">HTML5 demos</a>/<a id="built" href="http://twitter.com/rem">@rem built this</a>/<a href="#view-source">view source</a></footer> 
+</section>
+
+<script src="js/prettify.packed.js"></script>
+<script>
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+try {
+var pageTracker = _gat._getTracker("UA-1656750-18");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

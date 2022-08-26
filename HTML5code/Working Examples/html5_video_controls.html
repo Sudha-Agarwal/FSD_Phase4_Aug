@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+
+<header>
+<h1>Audio/Video control Property Demo</h1>
+</header>
+
+<button onclick="enableControls()" type="button">Enable controls</button>
+<button onclick="disableControls()" type="button">Disable controls</button>
+<button onclick="checkControls()" type="button">Check controls status</button><br> 
+
+<br>
+
+<video id="myVideo" width="320" height="176">
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>
+var vid = document.getElementById("myVideo");
+
+function enableControls() { 
+    vid.controls = true;
+    vid.load();
+} 
+
+function disableControls() { 
+    vid.controls = false;
+    vid.load();
+} 
+
+function checkControls() { 
+    alert(vid.controls);
+} 
+</script> 
+
+
+
+</body> 
+</html>

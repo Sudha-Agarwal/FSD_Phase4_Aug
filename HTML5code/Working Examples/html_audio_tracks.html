@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<header>
+<h1>Audio Track Property Demo</h1>
+</header>
+
+<button onclick="myFunction()" type="button">Get the number of available audio tracks</button>
+<br><br>
+
+<video id="myVideo" width="320" height="176" controls>
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
+
+<script>
+var vid = document.getElementById("myVideo");
+function myFunction() { 
+    alert(vid.audioTracks.length);
+} 
+</script> 
+
+
+
+</body> 
+</html>

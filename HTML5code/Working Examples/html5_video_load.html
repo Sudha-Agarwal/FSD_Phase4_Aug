@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+
+<header>
+<h1>load method Demo</h1>
+</header>
+<br>
+
+
+<button onclick="myFunction()" type="button">Click here to change Video</button><br>
+ <br>
+<video id="myVideo" controls autoplay>
+  <source id="mp4_src" src="mov_bbb.mp4" type="video/mp4">  
+  Your browser does not support HTML5 video.
+</video>
+
+<script> 
+function myFunction() { 
+    document.getElementById("mp4_src").src = "VfE_html5.mp4";
+    
+    document.getElementById("myVideo").load();
+} 
+</script> 
+
+
+
+</body> 
+</html>
+

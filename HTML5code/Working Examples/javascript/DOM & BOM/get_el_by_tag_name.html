@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<header>
+<h1>DOM - Get element by Tag Name Demo <h1>
+</header>
+
+<p>Hello World!</p>
+
+<div id="main">
+<p>The DOM is very useful.</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method</p>
+</div>
+
+<p id="demo"></p>
+<p id ="demo1"></p>
+
+<script>
+var x = document.getElementById("main");
+var y = x.getElementsByTagName("p");
+document.getElementById("demo").innerHTML = 
+'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+
+document.getElementById("demo1").innerHTML = 
+'The second paragraph (index 1) inside "main" is: ' + y[1].innerHTML;
+</script>
+
+</body>
+</html>

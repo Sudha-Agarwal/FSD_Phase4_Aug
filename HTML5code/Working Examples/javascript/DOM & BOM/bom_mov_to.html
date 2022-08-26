@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<header>
+<h1>BOM - Windows moveTo method Demo</h1>
+</header>
+
+<button onclick="openWin()">Create new window</button>
+<button onclick="moveWinTo()">Move new window</button>
+
+
+<script>
+var myWindow;
+
+function openWin() {
+    myWindow = window.open("", "", "width=250, height=250");
+}
+
+function moveWinTo() {
+    myWindow.moveTo(150, 150);
+    myWindow.focus();
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HTML5 Form Example - types of input fields</title>
+
+<script type="text/javascript">
+        function newBackgroundColor(bckclr) {
+            document.bgColor = bckclr;           
+            
+        }
+    </script>
+    
+</head>
+
+<body>
+
+<form action="action.php" method="post" id="myForm" oninput="range_disp.value=range.value">
+<fieldset>
+<legend>SiSoft User Form</legend>
+<ul>
+<li><label for="query">Search:</label> <input type="search" name="query" placeholder="enter search term" autofocus/></li>
+<li><label for="log">User Name:</label> <input type="text" name="log" id="user_login" size="20" placeholder="user id" required autocomplete="off" /></li>
+<li><label for="email">eMail:</label> <input type="email" name="email" id="email" placeholder="example@sisoft.com" required /></li>
+<li><label for="website">Website:</label> <input type="url" name="website" id="website" placeholder="http://sisofy"/></li>
+<li><label for="number">Number of classes:</label> <input type="number" name="number" id="number" placeholder="42" min="10" max="50" /></li>
+<li><label for="course">Course:</label> <input type="text" name="course" id="courseoffred" list="course"/>
+<datalist id="course">
+
+<option value="HTML5" />
+<option value="CSS3" />
+<option value="Java Script" />
+<option value="JQuery" />
+
+
+</datalist>
+</li>
+<li><label for="phone">Contact phone:</label> <input type="tel" name="phone" placeholder="+91 0123456789" /></li>
+<li><label for="rating">Site Rating: 0</label> <input type="range" id="range" name="range" min="0" max="10"/>
+<output for="range" id="range_disp"></output></li>
+<li><label for="startDate">Class Start Date:</label> <input type="date" name="startDate" /></li>
+<li><label for="startTime">Class Start Time:</label> <input type="time" name="startTime" /></li>
+<li><label for="textColor">Preferred background color:</label> <input type="color" name="bckclr" id="bckclr" onchange="newBackgroundColor(bckclr.value);"/></li>
+<li><label for="zipCode">Zip Code:</label> <input type="text" name="zipCode" pattern="[\d]{6}" title="six digit code"/></li>
+
+
+
+</ul>
+</fieldset>
+<fieldset><button type="submit">Show me</button>  <button type="reset" >Reset</button>
+</fieldset>
+</form>
+</body>
+</html>
+
